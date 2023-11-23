@@ -1,0 +1,67 @@
+/* nav ul {
+    list-style: none;
+} */
+/* .nav-link.active {
+    background-color: #73C650;
+    border-radius: 5px 5px 0 0;
+} */
+/* div a.navbar-brand {
+    padding: 0 0 0.5rem 0;
+}
+div span.navbar-text {
+    padding: 0 0 0.5rem 0;
+}
+div#root nav {
+    padding: 0.5rem 0 0 0;
+} */
+nav.navbar {
+    /* display: inline-flex; */
+    display: grid;
+    /* height: 1.2rem; */
+}
+nav.navbar .navLogo {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    padding-left: 1rem;
+    /* margin: 0 auto;
+    padding: 1rem; */
+
+}
+nav.navbar ul {
+    /* display: flex; */
+    margin: 0 auto;
+    padding: 1rem;
+
+    grid-column: 2;
+    grid-row: 1;
+}
+nav.navbar ul li {
+    display: inline;
+}
+nav.navbar ul li a {
+    color: #fff;
+    /* padding: 10px; */
+    padding: 0.5rem;
+    border-bottom: 2px #73C650 solid;
+    position: relative;
+    transition: all 0.4s;
+}
+nav.navbar ul li a.is-active {
+    color: #000;
+    font-weight: bold;
+    background-color: #73C650;
+    border-radius: 5px 5px 0 0;
+}
+
+.navExit {
+    display: flex;
+    margin-left: auto;
+    padding: 1rem;
+
+    grid-column: 3;
+    grid-row: 1;
+}
+.navExit svg{
+    color: red
+}

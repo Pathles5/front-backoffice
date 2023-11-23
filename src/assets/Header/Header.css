@@ -1,0 +1,11 @@
+.header {
+    background-color: #73C650;
+    color: #000;
+
+}
+.header h1{
+    margin: 0;
+    padding: 4rem 1rem;
+    font-weight: bold;
+    display: flex;
+}
