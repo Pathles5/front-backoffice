@@ -6,10 +6,13 @@ import {
 
 import { fetchClients } from '../../utils/clients';
 import TableClients from '../../components/Tables/TableClients/TableClients';
+import { updateHeaderH1 } from '../../utils/applicationTools';
+import { CATEGORY } from '../../enums/EnumCategory';
 
 const queryClient = new QueryClient();
 
 export default function ListClients() {
+  updateHeaderH1(CATEGORY.CLIENTS);
   return (
     <QueryClientProvider client={queryClient}>
       <DoListClients />

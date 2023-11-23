@@ -6,10 +6,13 @@ import {
 
 import { fetchInvoices } from '../../utils/invoices';
 import TableInvoices from '../../components/Tables/TableInvoices/TableInvoices';
+import { CATEGORY } from '../../enums/EnumCategory';
+import { updateHeaderH1 } from '../../utils/applicationTools';
 
 const queryClient = new QueryClient();
 
 export default function ListInvoices() {
+  updateHeaderH1(CATEGORY.INVOICES);
   return (
     <QueryClientProvider client={queryClient}>
       <DoListInvoices />
