@@ -13,8 +13,7 @@ export default function TableClients(props) {
       <Column field="id" header="ID" sortable />
       <Column field="name" header="NOMBRE" />
       <Column field="last_name" header="APELLIDO" />
-
-      <Column headerStyle={{ width: '5rem', textAlign: 'center' }} bodyStyle={{ textAlign: 'center', overflow: 'visible' }} body={<ButtonBox />} />
+      <Column header='Acciones' body={ButtonBox} />
     </DataTable>
   );
 }
