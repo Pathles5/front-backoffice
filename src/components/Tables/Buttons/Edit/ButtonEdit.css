@@ -1,0 +1,19 @@
+.popup-client-content {
+    width: auto;
+    padding: 2rem 4rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.button-cancel {
+    background-color: #ff0000;
+    margin: 1rem;
+}
+.button-save {
+    background-color: #73C650;
+    margin: 1rem;
+}
+.button-print {
+    background-color: #7f98ed;
+    margin: 1rem;
+}

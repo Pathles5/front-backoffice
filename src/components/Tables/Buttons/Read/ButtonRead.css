@@ -1,10 +1,10 @@
-.popup-client-read-content {
+.popup-client-content {
     width: auto;
-    padding: 2rem 1rem;
-    border-radius: 0.3rem;
+    padding: 2rem 4rem;
+    border-radius: 0.5rem;
     text-align: center;
 }
 .button-back {
-    background-color: red;
+    background-color: #7f98ed;
     margin: 1rem;
 }

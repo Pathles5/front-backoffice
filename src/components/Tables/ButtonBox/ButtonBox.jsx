@@ -1,5 +1,3 @@
-// import PopUpClient from '../../PopUp/Client/Edit/PopUpClient';
-// import PopUpClientRead from '../../PopUp/Client/Read/PopUpClientRead';
 import ButtonEdit from '../Buttons/Edit/ButtonEdit';
 import ButtonRead from '../Buttons/Read/ButtonRead';
 import './ButtonBox.css'
@@ -7,10 +5,8 @@ import './ButtonBox.css'
 export default function ButtonBox(rowData) {
     return (
         <div className="buttonBox">
-            {/* <PopUpClientRead client={rowData}/> */}
             <ButtonRead client={rowData}/>
 
-            {/* <PopUpClient client={rowData}/> */}
             <ButtonEdit client={rowData}/>
 
             <button type="button" id="buttonDelete" className="buttonTable">

@@ -1,11 +1,10 @@
 import { InputText } from 'primereact/inputtext';
 import PropTypes from 'prop-types';
 
-export const InputCustom = ({id,name,value,reason})=>{
-    console.log(id,name,value,reason);
+export const InputTextCustom = ({id,name,value,reason})=>{
     if (reason==='read') {
         return (
-            <div >
+            <div className='box-input'>
                 <label htmlFor={id}>{name}</label><br />
                 <InputText id={id} placeholder={value} disabled />
             </div>
@@ -13,16 +12,15 @@ export const InputCustom = ({id,name,value,reason})=>{
     }// reason=edit
     else {
         return (
-            <div >
+            <div className='box-input'>
                 <label htmlFor={id}>{name}</label><br />
                 <InputText id={id} placeholder={value} value={value} />
             </div>
         );
     }
-        
 };
 
-InputCustom.propTypes = {
+InputTextCustom.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
