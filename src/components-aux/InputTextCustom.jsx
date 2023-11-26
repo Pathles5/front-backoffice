@@ -1,12 +1,14 @@
 import { InputText } from 'primereact/inputtext';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-export const InputTextCustom = ({id,name,value,reason})=>{
+export const InputTextCustom = ({id,name,text,reason})=>{
+    const [value, setValue] = useState(text);
     if (reason==='read') {
         return (
             <div className='box-input'>
                 <label htmlFor={id}>{name}</label><br />
-                <InputText id={id} placeholder={value} disabled />
+                <InputText id={id} placeholder={text} disabled />
             </div>
         );
     }// reason=edit
@@ -14,7 +16,8 @@ export const InputTextCustom = ({id,name,value,reason})=>{
         return (
             <div className='box-input'>
                 <label htmlFor={id}>{name}</label><br />
-                <InputText id={id} placeholder={value} value={value} />
+                <InputText id={id}  placeholder={text} value={value}
+                onChange={(e) => setValue(e.target.value)} />
             </div>
         );
     }
@@ -23,7 +26,7 @@ export const InputTextCustom = ({id,name,value,reason})=>{
 InputTextCustom.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
     reason: PropTypes.oneOf(['read','edit']),
 };
 
