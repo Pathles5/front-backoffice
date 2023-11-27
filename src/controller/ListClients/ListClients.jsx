@@ -1,35 +1,18 @@
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from '@tanstack/react-query';
-
-import { fetchClients } from '../../utils/clients';
 import TableClients from '../../components/Tables/TableClients/TableClients';
 import { updateHeaderH1 } from '../../utils/applicationTools';
 import { CATEGORY } from '../../enums/EnumCategory';
 
-const queryClient = new QueryClient();
+import { fetchData } from '../../utils/fetchData';
+import { Suspense } from 'react';
+
+const apiData = fetchData(`${import.meta.env.VITE_API_URL_DOMAIN_DEV}${import.meta.env.VITE_API_CLIENT_LIST_ENDPOINT}`);
 
 export default function ListClients() {
   updateHeaderH1(CATEGORY.CLIENTS);
+  const data = apiData.read();
   return (
-    <QueryClientProvider client={queryClient}>
-      <DoListClients />
-    </QueryClientProvider>
-  );
-}
-
-function DoListClients() {
-  const { isLoading, error, data } = useQuery({
-    queryKey: ['clients'],
-    queryFn: fetchClients,
-  });
-
-  if (isLoading) return 'Loading...';
-  if (error) return `An error has occurred: ${error.message}`;
-  // const clients = data.data.items;
-  return (
-    <TableClients input={data.data.items} />
+    <Suspense fallback={<div>Loading...</div>}>
+      <TableClients input={data.data.items} />
+    </Suspense>
   );
 }

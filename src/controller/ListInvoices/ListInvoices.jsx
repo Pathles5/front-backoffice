@@ -1,35 +1,18 @@
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from '@tanstack/react-query';
-
-import { fetchInvoices } from '../../utils/invoices';
 import TableInvoices from '../../components/Tables/TableInvoices/TableInvoices';
-import { CATEGORY } from '../../enums/EnumCategory';
 import { updateHeaderH1 } from '../../utils/applicationTools';
+import { CATEGORY } from '../../enums/EnumCategory';
 
-const queryClient = new QueryClient();
+import { fetchData } from '../../utils/fetchData';
+import { Suspense } from 'react';
+
+const apiData = fetchData(`${import.meta.env.VITE_API_URL_DOMAIN_DEV}${import.meta.env.VITE_API_INVOICES_LIST_ENDPOINT}`);
 
 export default function ListInvoices() {
   updateHeaderH1(CATEGORY.INVOICES);
+  const data = apiData.read();
   return (
-    <QueryClientProvider client={queryClient}>
-      <DoListInvoices />
-    </QueryClientProvider>
-  );
-}
-
-function DoListInvoices() {
-  const { isLoading, error, data } = useQuery({
-    queryKey: ['bills'],
-    queryFn: fetchInvoices,
-  });
-
-  if (isLoading) return 'Loading...';
-  if (error) return `An error has occurred: ${error.message}`;
-  // const clients = data.data.items;
-  return (
-    <TableInvoices input={data.data.items} />
+    <Suspense fallback={<>Loading...</>}>
+      <TableInvoices input={data.data.items} />
+    </Suspense>
   );
 }

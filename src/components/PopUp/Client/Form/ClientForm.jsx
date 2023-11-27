@@ -30,11 +30,11 @@ export default function ClientForm(props) {
     
     return (
         <div className="client-form">
-            <form 
+            {/* <form 
             className="client-form"
             action={`https://3j0l1da1ib.execute-api.eu-west-1.amazonaws.com/dev/api/v1/client/id/${client.id}`}
             onSubmit={ handleSubmit }
-            method="post">
+            method="post"> */}
                 <InputTextCustom id="name" name='Nombre' text={client.name} reason={reason} />
 
                 <InputTextCustom id="last_name" name='Apellidos' text={client.last_name} reason={reason} />
@@ -67,7 +67,7 @@ export default function ClientForm(props) {
                         <InputTextCustom id="province" name='Provincia' text={client.address.province} reason={reason} />
                     </div>
                 </div>
-            </form>
+            {/* </form> */}
         </div>
     );
 }
