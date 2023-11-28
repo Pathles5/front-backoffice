@@ -27,9 +27,22 @@ function getSuspender(promise) {
 }
 
 
-export function fetchData(url) {
-    const promise = fetch(url)
+export function fetchData(url, method='GET',body,headers) {
+    console.log(url, method,body,headers);
+    const promise = fetch(url, {
+        method: method,
+        body: JSON.stringify(body),
+        // headers: {
+        //     'Content-Type': 'application/json',
+        //     'Accept': '*/*'
+        // }
+        })
         .then((response) => response.json())
-        .then((data) => data);
+        .then((data) => data)
+        .catch((e)=>{
+            console.log('Muerte silenciosa')
+            console.log(e);
+            return e
+        });
     return getSuspender(promise);
 }

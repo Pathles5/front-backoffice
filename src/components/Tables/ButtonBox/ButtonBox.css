@@ -31,3 +31,26 @@
     grid-column: 3;
     grid-row: 1;
 }
+
+
+.buttons-form {
+    grid-column: 1/4;
+    text-align: center;
+}
+.buttons-form button {
+    display: inline-block;
+    border: dotted 1px red;
+    padding: 5px
+}
+
+.buttons-form button span{
+    clear: left;
+    text-align: right;
+    vertical-align: middle;
+    /* line-height:25px; */
+}
+
+.buttons-form button svg {
+    display:inline-block;
+    vertical-align:top;
+}

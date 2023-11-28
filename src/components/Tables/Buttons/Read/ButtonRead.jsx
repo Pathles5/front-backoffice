@@ -18,13 +18,26 @@ export default function ButtonRead(props) {
                 modal nested >
                 {   
                     close => (
-                        <>
+                        <div className='client-form'>
                             <ClientForm client={client}  reason='read'/>
-                            <button className="button-back" onClick=
-                                {() => close()}>
-                                    Volver
-                            </button>
-                        </>
+                            <div className='buttons-form'>
+                                <button className="button-back" onClick=
+                                    {() => close()}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-back-up" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 14l-4 -4l4 -4" /><path d="M5 10h11a4 4 0 1 1 0 8h-1" /></svg>
+                                        <span>
+                                            Volver
+                                        </span>
+                                </button>
+
+                                <button className="button-print" onClick=
+                                    {() => close()}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" /><path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" /><path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" /></svg>
+                                        <span>
+                                            Imprimir
+                                        </span>
+                                </button>
+                            </div>
+                        </div>
                     )
                 }
             </Popup>
