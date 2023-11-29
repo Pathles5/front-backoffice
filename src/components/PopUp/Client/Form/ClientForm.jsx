@@ -29,15 +29,15 @@ export default function ClientForm(props) {
             <div className="box-address">
                 Direccion: 
                 <div className='box-address-2'>
-                    <InputTextCustom id="street_name" name='Calle' text={client.address.street_name} reason={reason} />
+                    <InputTextCustom id="street_name" name='Calle' text={client?.address?.street_name} reason={reason} />
 
-                    <InputTextCustom id="street_number" name='Número' text={client.address.street_number} reason={reason} />
+                    <InputTextCustom id="street_number" name='Número' text={client?.address?.street_number} reason={reason} />
 
-                    <InputTextCustom id="city" name='Municipio' text={client.address.city} reason={reason} />
+                    <InputTextCustom id="city" name='Municipio' text={client?.address?.city} reason={reason} />
 
-                    <InputTextCustom id="postal_code" name='Código Postal' text={client.address.postal_code} reason={reason} />
+                    <InputTextCustom id="postal_code" name='Código Postal' text={client?.address?.postal_code} reason={reason} />
 
-                    <InputTextCustom id="province" name='Provincia' text={client.address.province} reason={reason} />
+                    <InputTextCustom id="province" name='Provincia' text={client?.address?.province} reason={reason} />
                 </div>
             </div>
         </>
@@ -46,5 +46,5 @@ export default function ClientForm(props) {
 
 ClientForm.propTypes = {
     client: PropTypes.any.isRequired,
-    reason: PropTypes.oneOf(['read','edit']),
+    reason: PropTypes.oneOf(['read','edit','add']),
 };

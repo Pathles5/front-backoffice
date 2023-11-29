@@ -11,6 +11,16 @@ export const InputTextCustom = ({id,name,text,reason})=>{
                 <InputText id={id} placeholder={text} disabled />
             </div>
         );
+    }
+    else if (reason==='add') {
+        return (
+            <div className='box-input'>
+                <label htmlFor={id}>{name}</label><br />
+                <InputText id={id}  placeholder={text} value={value}
+                onChange={(e) => setValue(e.target.value)} />
+            </div>
+        );
+    
     }// reason=edit
     else {
         return (
@@ -26,7 +36,7 @@ export const InputTextCustom = ({id,name,text,reason})=>{
 InputTextCustom.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    reason: PropTypes.oneOf(['read','edit']),
+    text: PropTypes.string,
+    reason: PropTypes.oneOf(['read','edit','add']),
 };
 

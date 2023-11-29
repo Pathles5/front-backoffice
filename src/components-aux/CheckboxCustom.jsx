@@ -29,6 +29,6 @@ CheckboxCustom.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.bool,
-    reason: PropTypes.oneOf(['read','edit']),
+    reason: PropTypes.oneOf(['read','edit','add']),
 };
 

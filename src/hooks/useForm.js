@@ -1,16 +1,21 @@
 import { useState } from "react";
 import { transformFormClient } from "../utils/clients";
 
-export default function useForm(/* {additionalData} */) {
+export default function useForm(/* {additionalData}*/) {
     const [status, setStatus] = useState('');
     const [message, setMessage] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e,method) => {
         e.preventDefault();
         setStatus('loading');
         setMessage('');
 
         const finalFormEndpoint = e.target.action;
+        console.log('Buscando el metodo');
+        console.log(e.target);
+        console.log(e.target.action);
+        console.log(e.target.method);
+        console.log(method);
         const data = Array.from(e.target.elements)
             .filter(element => element.id)
             .reduce((obj, element) => Object.assign(obj, { [element.id]: element.value }), {});
@@ -30,7 +35,7 @@ export default function useForm(/* {additionalData} */) {
         //     .reduce((obj, input) => Object.assign(obj, { [input.id]: input.value }), {});
 
         fetch(finalFormEndpoint, {
-            method: 'PUT',
+            method: method,
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
